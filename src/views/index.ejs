@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>o6u</title>
+    <!-- css -->
+    <%- include('../bootstrab/syles.ejs') %>
+  </head>
+  <body>
+    <header><%- include('./layout/navbar.ejs') %></header>
+
+    <main>
+      <section><%- include('./layout/landing.ejs') %></section>
+
+      <section class="container">
+        <p class="text-center mt-5">
+          There are many great colleges and many great conservatories. There is
+          only one O6U
+        </p>
+        <%- include('./layout/cards.ejs') %> <%- include('./layout/news.ejs') %>
+      </section>
+    </main>
+    <%- include('./layout/footer.ejs') %>
+    <!-- js -->
+    <%- include('../bootstrab/js.ejs') %>
+  </body>
+</html>

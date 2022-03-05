@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>o6u</title>
+    <!-- css -->
+    <%- include('../../bootstrab/syles.ejs') %>
+  </head>
+  <body>
+    <header><%- include('../layout/navbar.ejs') %></header>
+    <main class="mb-5">
+      <section><%- include('./coursesLayout/landing.ejs') %></section>
+      <section class="container mt-5 pt-2 pb-2">
+        <%- include('./coursesLayout/matrials.ejs') %>
+      </section>
+    </main>
+    <%- include('../layout/footer.ejs') %>
+
+    <!-- js -->
+    <%- include('../../bootstrab/js.ejs') %>
+  </body>
+</html>

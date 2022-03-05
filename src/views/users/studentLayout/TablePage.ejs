@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!--<title>Dashboard Sidebar Menu</title>-->
+    <title>o6u</title>
+    <!-- css -->
+    <%- include('../../../bootstrab/syles.ejs') %>
+  </head>
+  <body>
+    <header><%- include('../../layout/navbar.ejs') %></header>
+    <div id="wrapper" class="toggled">
+      <div class="iconToggle" id="iconToggle">
+        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+      </div>
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <a href="#"> Dashboard </a>
+          </li>
+          <li>
+            <a href="/user">Profile</a>
+          </li>
+          <li>
+            <a href="/registeration">Pre Pregistration</a>
+          </li>
+          <li>
+            <a href="/tables">Tables</a>
+          </li>
+          <li>
+            <a href="/acadmic-records">Acadmic Records</a>
+          </li>
+          <li>
+            <a href="/exams">Exams</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /#sidebar-wrapper -->
+
+      <!-- Page Content -->
+      <%- include('./sideComponents/tables.ejs') %>
+      <!-- /#wrapper -->
+
+      <!-- Menu Toggle Script -->
+      <script>
+        let btn = document.getElementById("iconToggle");
+        let sidebar = document.getElementById("wrapper");
+        btn.addEventListener("click", () => {
+          sidebar.classList.toggle("toggled");
+        });
+      </script>
+    </div>
+    <!-- js -->
+    <%- include('../../../bootstrab/js.ejs') %>
+  </body>
+</html>
