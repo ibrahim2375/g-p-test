@@ -23,7 +23,8 @@
     "mysql2": "^2.3.3",
     "node-input-validator": "^4.5.0",
     "sequelize": "^6.17.0",
-    "sharp": "^0.25.4"
+    "sharp": "^0.25.4",
+    "sweetalert2": "^11.4.4"
   },
   "devDependencies": {
     "eslint": "^7.6.0",

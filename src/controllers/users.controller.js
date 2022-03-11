@@ -1,8 +1,7 @@
-var session = require('express-session');
-const Service = require('../services/users.service')
-const { Validator } = require('node-input-validator');
+// const Service = require('../services/users.service')
+// const { Validator } = require('node-input-validator');
 require('dotenv').config();
-const users = require('../../models');
+var session = require('express-session');
 const db = require('../../models');
 const methods = {
     async getUsers(req, res) {
@@ -27,30 +26,26 @@ const methods = {
             // let result =  await Service.getUsers();
             // console.log("res", result);
 
-            // let result = await Service.getUsers();
-            // console.log("res", result);
+                if (req.session.user && req.cookies.user_sid) {
+    
 
-            // const users = await db.User.findAll({ attributes: ['name'] }).then((user) => {
-            //     console.log(user[0].name)
-            // await users.User.findOne({ where: { email: req.session.user.email } }).then((user) => {
-            //     console.log(user[0].name);
-            // });
-            // await users.User.findOne({ where: { email: req.session.user.email } }).then(function (user) {
-            //     console.log(user)
-        
-            // });
-          
-            await users.User.findOne({ where: { email: req.session.user.email } }).then(function (user) {
-                console.log(user);
-            });
+                    await db.users.findOne({ where: { email: req.session.user.email }, include: [db.csisStudent] }).then(function (user) {
+                       
+                        if (!user) {
+                            res.redirect('/')
+                        } else {
+                         
+                            res.render("users/student.ejs", { currentUser: req.session.user, studentData: user });
+                        }
+                    });
 
+                } else {
+                    res.redirect('/login');
+                }
 
-            res.render("users/student.ejs", { currentUser: req.session.user });
-
-
-        } catch (error) {
-            res.error(error.message, error.status)
-        }
+            } catch (error) {
+                res.error(error.message, error.status)
+            }
     }
 }
 

@@ -1,32 +1,31 @@
+
 <div id="page-content-wrapper">
   <div class="container-fluid">
+    <h1>Result</h1>
     <table class="table table-bordered border-dark">
       <thead>
         <tr>
-          <th>#</th>
-          <th>First</th>
-          <th>Last</th>
-          <th>Handle</th>
+          <th>courseName</th>
+          <th>quiz1</th>
+          <th>midterm</th>
+          <th>quez2</th>
+          <th>attendance</th>
+          <th>final</th>
+          <th>total degrees</th>
         </tr>
       </thead>
       <tbody>
+        <% studentResult.forEach((result) => { %>
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <td><%= result.courseName %></td>
+          <th><%= result.quiz1 %></th>
+          <th><%= result.midTerm %></th>
+          <th><%= result.quiz2 %></th>
+          <th><%= result.attendance %></th>
+          <th><%= result.final %></th>
+          <td><%= result.total %></td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        <% }) %>
       </tbody>
     </table>
     <!-- /#page-content-wrapper -->

@@ -1,34 +1,31 @@
 require('dotenv').config();
-const Service = require('../services/users.service')
-const { Validator } = require('node-input-validator');
-var User = require('../../models/user');
+var session = require('express-session');
+var db = require('../../models');
+
 
 const methods = {
     async getLogin(req, res) {
         try {
-            // const v = new Validator(
-            //           req.body,
-            //     {
-            //         'imageDetails': 'required|object',
-            //         'imageDetails.startPoint.x': 'required|numeric',
-            //         'imageDetails.startPoint.y': 'required|numeric',
-            //         'imageDetails.width': 'required|numeric',
-            //         'imageDetails.height': 'required|numeric',
-            //         'imageDetails.angle': 'required|numeric',
-            //     },
-            // );
+            res.render('Login/login.ejs');
 
-            // if (v.fails()) {
-            //     if (!(Object.keys(v.errors).length === 0 && v.errors.constructor === Object))
-            //          res.status(400).render()
-            // }
+        } catch (error) {
+            res.error(error.message, error.status)
+        }
+    },
+    async getUser(req, res) {
+        try {
+            var username = req.body.email,
+                password = req.body.password;
+            //sequelize check user
+            await db.users.findOne({ where: { email: username, password: password } }).then(function (user) {
+                if (!user) {
+                    res.redirect('/login');
+                } else {
+                    req.session.user = user.dataValues;
+                    res.redirect('/');
+                }
+            });
 
-            let result = await Service.getUsers();
-            // console.log("res", result);
-
-           
-         
-            res.render("Login/login.ejs")
         } catch (error) {
             res.error(error.message, error.status)
         }

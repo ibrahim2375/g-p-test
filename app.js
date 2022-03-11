@@ -42,22 +42,22 @@ app.use((req, res, next) => {
     }
     next();
 });
-var hbsContent = { userName: '', loggedin: false, title: "You are not logged in today", body: "Hello World" };
+// var hbsContent = { userName: '', loggedin: false, title: "You are not logged in today", body: "Hello World" };
 
 // middleware function to check for logged-in users
-var sessionChecker = (req, res, next) => {
-    if (req.session.user && req.cookies.user_sid) {
-        res.redirect('/');
-    } else {
-        next();
-    }
-};
+// var sessionChecker = (req, res, next) => {
+//     if (req.session.user && req.cookies.user_sid) {
+//         res.redirect('/');
+//     } else {
+//         next();
+//     }
+// };
 
 //new
 
 // call sysc()
-// const db = require("./models");
-// db.sequelize.sync();
+const db = require("./models");
+db.sequelize.sync();
 
 //routes
 
@@ -84,7 +84,6 @@ app.use(function (err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
-
     // render the error page
     res.status(err.status || 500);
     res.json(err);

@@ -1,6 +1,7 @@
 <div id="page-content-wrapper">
   <div class="container-fluid">
     <div class="mt-5">
+      <h1>Profile</h1>
       <table class="table">
         <thead>
           <tr>
@@ -11,12 +12,12 @@
         <tbody>
           <tr>
             <td>Name</td>
-            <td><%= userData.name %></td>
+            <td><%= studentData.name %></td>
           </tr>
 
           <tr>
             <td>id</td>
-            <td><%= userData.id %></td>
+            <td><%= studentData.id %></td>
           </tr>
           <tr>
             <td>section</td>
@@ -24,23 +25,23 @@
           </tr>
           <tr>
             <td>Email</td>
-            <td><%= userData.email %></td>
+            <td><%= studentData.email %></td>
           </tr>
           <tr>
             <td>Create At</td>
-            <td><%= userData.createdAt %></td>
+            <td><%= studentData.createdAt %></td>
           </tr>
           <tr>
             <td>Level</td>
-            <td>3</td>
+            <td><%= studentData.csisStudents[0].level %></td>
           </tr>
           <tr>
             <td>Nationality</td>
-            <td>egyption</td>
+            <td><%= studentData.csisStudents[0].nationality %></td>
           </tr>
           <tr>
-            <td>Academic Advisor</td>
-            <td>emad ali</td>
+            <td>Academic Advisor & permission</td>
+            <td>Emad Ali</td>
           </tr>
           <tr>
             <td>Register Houres</td>

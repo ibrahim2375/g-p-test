@@ -1,47 +1,70 @@
 <div id="page-content-wrapper">
   <div class="container-fluid">
+    <h1>Pre Registeration</h1>
+    <% if(!checkR) { %>
+    <form action="/registeration" method="post">
+      <!-- loop for matrials -->
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th scope="col">Course Name</th>
+            <th scope="col">Code</th>
+            <th scope="col">Level</th>
+            <th scope="col">Hours</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% showMaterials.forEach(function (m,index) { %>
+          <tr>
+            <td><% const mnames = [m.materialName] %> <%= m.materialName %></td>
+            <td><%= m.code %></td>
+            <td><%= m.level %></td>
+            <td><%= m.hours %></td>
+            <td>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="<%= mnames %>"
+                  id="flexCheckDefault"
+                  name="<%= `m${index}` %>"
+                />
+              </div>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <input class="btn btn-dark" type="submit" value="Register" />
+    </form>
+    <% } %> <% if(errors == null) { %>
+    <div class="alert alert-success" role="alert"><%= errors %></div>
+    <% } %>
+
+    <!-- new------------------------------------------------------>
+    <% if(checkR) { %>
     <table class="table align-middle">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Lorem</th>
-          <th scope="col">Ipsum</th>
-          <th scope="col">Dolor</th>
+          <th scope="col">Course Name</th>
         </tr>
       </thead>
+
       <tbody>
+        <% checked.map(function (course) { %>
+           <% if (course.courseName !== null) { %>
         <tr>
-          <th scope="row">1</th>
-          <td>Sit</td>
-          <td>Amet</td>
-          <td>
-          <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-        </div>
-          </td>
+          <td><%= course.courseName %></td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Adipisicing</td>
-          <td>Elit</td>
-          <td>
-           <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-        </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Hic</td>
-          <td>Fugiat</td>
-          <td>
-              <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-        </div>
-          </td>
-        </tr>
+        <% } %> <% }) %>
       </tbody>
     </table>
+    <% } %>
+
+    <!-- new--------------------------------------------------------->
+
     <!-- /#page-content-wrapper -->
   </div>
 </div>
