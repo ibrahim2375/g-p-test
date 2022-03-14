@@ -1,17 +1,28 @@
 <div id="page-content-wrapper">
   <div class="container-fluid">
-    <h1>Exams</h1>
-    <% examsTablesOfYears.forEach(function (exam) { %>
-    <a href="<%= exam.url%>">
-      <div class="card text-white bg-dark mb-3" style="max-width: 18rem">
-        <div class="card-header"><%= exam.semester%></div>
-        <div class="card-body">
-          <h5 class="card-title">Lvel <%= exam.level%></h5>
-          <p class="card-text"><%= exam.desc%></p>
+    <h1>Exams Tables</h1>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 50px;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <% examsTablesOfYears.forEach(function (exam) { %>
+      <a href="<%= exam.url%>">
+        <div class="card text-white bg-dark mb-3 p-3" style="max-width: 18rem">
+          <div class="card-header"><%= exam.semester%></div>
+          <div class="card-body">
+            <h5 class="card-title">Lvel <%= exam.level%></h5>
+            <p class="card-text"><%= exam.desc%></p>
+          </div>
         </div>
-      </div>
-    </a>
-    <% })%>
+      </a>
+      <% })%>
+    </div>
     <!-- /#page-content-wrapper -->
   </div>
 </div>

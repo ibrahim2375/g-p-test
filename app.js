@@ -42,16 +42,7 @@ app.use((req, res, next) => {
     }
     next();
 });
-// var hbsContent = { userName: '', loggedin: false, title: "You are not logged in today", body: "Hello World" };
 
-// middleware function to check for logged-in users
-// var sessionChecker = (req, res, next) => {
-//     if (req.session.user && req.cookies.user_sid) {
-//         res.redirect('/');
-//     } else {
-//         next();
-//     }
-// };
 
 //new
 

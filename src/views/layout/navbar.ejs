@@ -78,6 +78,16 @@
         <li class="nav-item">
           <a class="nav-link" href="/user">Student</a>
         </li>
+        <% } %> <% } %> 
+        <% if(currentUser){ %> <% if(currentUser.permission ==='instructor' ){ %>
+        <li class="nav-item">
+          <a class="nav-link" href="/instructor">Instructor</a>
+        </li>
+        <% } %> <% } %>
+        <% if(currentUser){ %> <% if(currentUser.permission ==='parent' ){ %>
+        <li class="nav-item">
+          <a class="nav-link" href="/parent">Parent</a>
+        </li>
         <% } %> <% } %>
 
         <!-- Navbar dropdown -->

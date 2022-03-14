@@ -8,12 +8,11 @@ const methods = {
         try {
             if (req.session.user && req.cookies.user_sid) {
                 var getCurrentUserData = await db.csisStudent.findOne({ where: { userId: req.session.user.id }, include: [db.users] });
-                var getMatrials = await db.materials.findAll({ where: { level: getCurrentUserData.level, semester: 'first' } });  /////////////////////////and semester///////////////////////////
+                var getMatrials = await db.materials.findAll({ where: { level: getCurrentUserData.level, semester: 'first' } });
                 var checkUserRegistration = await db.registration.findOne({ where: { userId: req.session.user.id } });
                 var checkRegistration = await db.registration.findAll({ where: { userId: req.session.user.id } });
                 if (checkUserRegistration) {
                     var showCoursesRegistered = checkRegistration;
-
 
                 }
 

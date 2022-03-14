@@ -39,7 +39,12 @@
       <form action="/login" method="post">
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email" id="loginName" class="form-control text-white" name="email" />
+          <input
+            type="email"
+            id="loginName"
+            class="form-control text-white"
+            name="email"
+          />
           <label class="form-label text-white" for="loginName"
             >Email or username</label
           >
@@ -83,10 +88,18 @@
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4" name="submit">
+        <button
+          type="submit"
+          class="btn btn-primary btn-block mb-4"
+          name="submit"
+        >
           Sign in
         </button>
-   
+        <% if(errors.length > 0) { %>
+        <!-- errors -->
+        <div class="alert alert-danger" role="alert"><%= errors %></div>
+        <!-- errors -->
+        <% } %>
       </form>
     </div>
 
@@ -96,13 +109,14 @@
       role="tabpanel"
       aria-labelledby="tab-register"
     >
-      <form>
+      <form action="/login" method="post">
         <!-- Username input -->
         <div class="form-outline mb-4">
           <input
             type="text"
             id="registerUsername"
             class="form-control text-white"
+            name="keyParent"
           />
           <label class="form-label text-white" for="registerUsername">
             Parent Id</label

@@ -12,44 +12,36 @@
         <tbody>
           <tr>
             <td>Name</td>
-            <td><%= studentData.name %></td>
+            <td><%= dataOfInstructor.name %></td>
           </tr>
 
           <tr>
             <td>id</td>
-            <td><%= studentData.id %></td>
+            <td><%= dataOfInstructor.id %></td>
           </tr>
           <tr>
-            <td>section</td>
-            <td>inf sys & com science</td>
+            <td>college</td>
+            <td><%= dataOfInstructor.instructors[0].college %></td>
           </tr>
           <tr>
             <td>Email</td>
-            <td><%= studentData.email %></td>
+            <td><%= dataOfInstructor.email %></td>
           </tr>
           <tr>
             <td>Create At</td>
-            <td><%= studentData.createdAt %></td>
-          </tr>
-          <tr>
-            <td>Level</td>
-            <td><%= studentData.csisStudents[0].level %></td>
+            <td><%= dataOfInstructor.createdAt %></td>
           </tr>
           <tr>
             <td>Nationality</td>
-            <td><%= studentData.csisStudents[0].nationality %></td>
+            <td><%= dataOfInstructor.instructors[0].nationality %></td>
           </tr>
           <tr>
-            <td>Academic Advisor & permission</td>
-            <td></td>
+            <td>permission</td>
+            <td><%= dataOfInstructor.permission %></td>
           </tr>
           <tr>
-            <td>Register Houres</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>GPA</td>
-            <td></td>
+            <td>matrial</td>
+            <td><%= dataOfInstructor.instructors[0].courseName %></td>
           </tr>
         </tbody>
       </table>

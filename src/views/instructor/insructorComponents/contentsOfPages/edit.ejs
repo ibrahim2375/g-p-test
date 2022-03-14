@@ -1,0 +1,60 @@
+<div class="container " style="display: flex;flex-direction: column;gap: 20px"> 
+  <!-- container -->
+  <!-- search -->
+  <form action="/instructoredit" method="post" novalidate >
+    <div class="input-group">
+      <div class="form-outline">
+      <input id="search-input" type="search" id="form1" class="form-control"  name="search"/>
+      <label class="form-label" for="form1">Search</label>
+    </div>
+    <button id="search-button" type="submit" class="btn btn-dark">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+</form>
+  
+  <h2><%= dataOfInstructor.instructors[0].courseName %></h2>
+  <!-- search -->
+  <table class="table align-middle border border-1">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Id</th>
+        <th scope="col">Quiz1</th>
+        <th scope="col">MidTerm</th>
+        <th scope="col">Quiz2</th>
+        <th scope="col">Attendance</th>
+        <th scope="col">Practical</th>
+        <th scope="col">Final</th>
+        <th scope="col">Total</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% studentRegisteredCourse.forEach(function(student, index) { %>
+        
+         
+        <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= student.userId %></td>
+        <td><%= student.quiz1 %></td>
+        <td><%= student.midTerm %></td>
+        <td><%= student.quiz2 %></td>
+        <td><%= student.attendance %></td>
+        <td><%= student.practical %></td>
+        <td><%= student.final %></td>
+        <td><%= student.total %></td>
+        <td>
+            <a href="/edit/<%=student.userId%>" class="btn btn-dark ">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+        </td>
+    </tr>
+
+<% }) %>
+      
+      </tr>
+    </tbody>
+  </table>
+  <!-- container -->
+</div>

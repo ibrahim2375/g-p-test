@@ -1,17 +1,28 @@
 <div id="page-content-wrapper">
   <div class="container-fluid">
     <h1>Tables</h1>
-    <% tablesOfYears.forEach(function (table) { %>
-    <a href="<%= table.url%>">
-      <div class="card text-white bg-dark mb-3" style="max-width: 18rem">
-        <div class="card-header">Table</div>
-        <div class="card-body">
-          <h5 class="card-title">Level <%= table.level %></h5>
-          <!-- <p class="card-text">All </p> -->
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 50px;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <% tablesOfYears.forEach(function (table) { %>
+      <a href="<%= table.url%>">
+        <div class="card text-white bg-dark mb-3 p-3" style="max-width: 18rem">
+          <div class="card-header">Table</div>
+          <div class="card-body">
+            <h5 class="card-title">Level <%= table.level %></h5>
+            <!-- <p class="card-text">All </p> -->
+          </div>
         </div>
-      </div>
-    </a>
-    <% }) %>
+      </a>
+      <% }) %>
+    </div>
     <!-- /#page-content-wrapper -->
   </div>
 </div>

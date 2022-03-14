@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!----======== CSS ======== -->
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+
+    <title>o6u</title>
+    <!-- css -->
+    <%- include('../../../bootstrab/syles.ejs') %>
+  </head>
+  <body>
+    <main class="container mt-5">
+      <div style="position: absolute; top: 50px; right: 50px; font-size: 40px">
+        <a href="/instructoredit" style="color: black">
+          <i class="fa-solid fa-xmark"></i>
+        </a>
+      </div>
+      <h1><%= studentData.name %></h1>
+      <h1><%= studentResult.userId %></h1>
+
+      <!-- update data ------------------------------------------------------->
+      <form action="/edit/<%= studentResult.userId %>" method="post">
+        <!-- Quiz1 input -->
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="form5Example1"
+            class="form-control"
+            name="quiz1"
+            value="<%= studentResult.quiz1 %>"
+          />
+          <label class="form-label" for="form5Example1">Quiz1</label>
+        </div>
+        <!-- MidTerm input -->
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="form5Example1"
+            class="form-control"
+            name="midTerm"
+            value="<%= studentResult.midTerm %>"
+          />
+          <label class="form-label" for="form5Example1">MidTerm</label>
+        </div>
+        <!-- Quiz2 input -->
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="form5Example1"
+            class="form-control"
+               name="quiz2"
+            value="<%= studentResult.quiz2 %>"
+          />
+          <label class="form-label" for="form5Example1">Quiz2</label>
+        </div>
+        <!-- attendance input -->
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="form5Example1"
+            class="form-control"
+            name="attendance"
+            value="<%= studentResult.attendance %>"
+          />
+          <label class="form-label" for="form5Example1">Attendance</label>
+        </div>
+        <!-- Practical input -->
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="form5Example1"
+            class="form-control"
+             name="practical"
+            value="<%= studentResult.practical %>"
+          />
+          <label class="form-label" for="form5Example1">Practical</label>
+        </div>
+        <!-- Final input -->
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="form5Example1"
+            class="form-control"
+            name="final"
+            value="<%= studentResult.final %>"
+          />
+          <label class="form-label" for="form5Example1">Final</label>
+        </div>
+        <!-- Total input -->
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="form5Example1"
+            class="form-control"
+            name="total"
+            value="<%= studentResult.total %>"
+          />
+          <label class="form-label" for="form5Example1">Total</label>
+        </div>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-dark btn-block mb-4">
+          Update
+        </button>
+      </form>
+      <!-- update data ----------------------------------------------------------->
+    </main>
+
+    <!-- js -->
+    <%- include('../../../bootstrab/js.ejs') %>
+  </body>
+</html>

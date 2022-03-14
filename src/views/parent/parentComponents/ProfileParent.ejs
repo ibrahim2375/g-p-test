@@ -1,0 +1,46 @@
+<div class="">
+  <div class="p-3">
+    <h2 class="text-center">Your Information</h2>
+    <h4>Name : <%= currentUser.name %></h4>
+    <h4>Key : <%= currentUser.key %></h4>
+    <h4>Nationality : <%= currentUser.nationality %></h4>
+  </div>
+  <hr />
+  <div class="p-3">
+    <h2 class="text-center">Son Information</h2>
+    <h4>Name:</h4>
+    <h4>Id:</h4>
+    <h4>level:</h4>
+    <h4>GPAS:</h4>
+  </div>
+  <hr />
+  <h2>Result:</h2>
+  <!-- table -->
+  <table class="table table-bordered border-dark">
+    <thead>
+      <tr>
+        <th>courseName</th>
+        <th>quiz1</th>
+        <th>midterm</th>
+        <th>quez2</th>
+        <th>attendance</th>
+        <th>final</th>
+        <th>total degrees</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% sonResult.forEach((result) => { %>
+      <tr>
+        <td><%= result.courseName %></td>
+        <th><%= result.quiz1 %></th>
+        <th><%= result.midTerm %></th>
+        <th><%= result.quiz2 %></th>
+        <th><%= result.attendance %></th>
+        <th><%= result.final %></th>
+        <td><%= result.total %></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <!-- table -->
+</div>

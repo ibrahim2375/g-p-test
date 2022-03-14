@@ -1,7 +1,5 @@
 .iconToggle {
-  /* position: absolute;
-  left: 0;
-  top: 57px; */
+  position: fixed;
   z-index: 99999;
   border: 1px solid #cccc;
   width: 30px;
@@ -29,6 +27,7 @@
 }
 
 #sidebar-wrapper {
+  /* padding: 10px; */
   z-index: 1000;
   position: fixed;
   left: 250px;
@@ -129,7 +128,7 @@
   }
 }
 @media (max-width: 768px) {
-    #wrapper {
+  #wrapper {
     padding-left: 0;
   }
   #wrapper.toggled {
@@ -138,7 +137,4 @@
   #sidebar-wrapper {
     width: 0;
   }
-
-
- 
 }
