@@ -39,7 +39,7 @@
           <li>
             <a href="/exams">Scheduling</a>
           </li>
-           <li>
+          <li>
             <a href="/archive">Archive</a>
           </li>
         </ul>
@@ -47,7 +47,34 @@
       <!-- /#sidebar-wrapper -->
 
       <!-- Page Content -->
-      <%- include('./sideComponents/register.ejs') %>
+      <!-- matrials data -->
+      <main class = "container pt-5">
+        <table class="table table-bordered border-dark">
+          <thead class="table table-dark">
+            <tr>
+              <th>courseName</th>
+              <th>code</th>
+              <th>level</th>
+              <th>hours</th>
+              <th>semester</th>
+              <th>Total degrees</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% matrialData.forEach(function(course) { %>
+            <tr>
+              <th><%= course.materialName %></th>
+              <th><%= course.code %></th>
+              <th><%= course.level %></th>
+              <th><%= course.hours %></th>
+              <th><%= course.semester %></th>
+              <th><%= course.total %></th>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </main>
+      <!-- matrials data -->
       <!-- /#wrapper -->
 
       <!-- Menu Toggle Script -->

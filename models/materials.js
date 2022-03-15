@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     code: DataTypes.INTEGER,
     college: DataTypes.STRING,
     hours: DataTypes.FLOAT,
-    semester: DataTypes.STRING
+    semester: DataTypes.STRING,
+    total: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'materials',

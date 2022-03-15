@@ -1,5 +1,6 @@
 require('dotenv').config();
 var session = require('express-session');
+
 const db = require('../../models');
 const methods = {
     async getRecords(req, res) {
@@ -8,15 +9,16 @@ const methods = {
 
                 const studentResult = await db.csisResult.findAll({ where: { userId: req.session.user.id } });
 
+
+
                 res.render("users/studentLayout/AcadmicRecords.ejs", {
                     currentUser: req.session.user, studentResult
-                })
+                });
             } else {
                 res.redirect('/');
             }
         } catch (error) {
-            res.error(error.message, error.status)
         }
-}
+    }
 }
 module.exports = { ...methods }

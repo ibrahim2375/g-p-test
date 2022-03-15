@@ -26,6 +26,9 @@ module.exports = {
       semester: {
         type: Sequelize.STRING
       },
+      total: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

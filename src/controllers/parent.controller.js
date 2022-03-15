@@ -8,8 +8,8 @@ const methods = {
                 const parentData = await db.parent.findOne({ where: { key: req.session.user.key } });
                 if (parentData) {
                     const sonResult = await db.csisResult.findAll({ where: { userId: parentData.userId } });
-
-                    res.render("parent/infoPage.ejs", { currentUser: req.session.user, sonResult });
+                    const sonData = await db.csisStudent.findOne({ where: { userId: parentData.userId }, include: db.users });
+                    res.render("parent/infoPage.ejs", { currentUser: req.session.user, sonResult, sonData });
 
                 } else {
                     res.send('there error key not founded');
