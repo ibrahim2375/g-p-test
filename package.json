@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "web": "nodemon app.js"
   },
-  "author": "Ahmed Hassan",
+  "author": "Graduation project",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.2",
