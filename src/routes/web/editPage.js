@@ -1,3 +1,4 @@
+const { text } = require('body-parser');
 const express = require('express');
 const router = express.Router();
 const session = require('express-session');
@@ -9,13 +10,18 @@ router.get('/:id', async (req, res) => {
     try {
 
         if (req.session.user && req.cookies.user_sid) {
-            const instructorData = await db.instructor.findOne({ where: { userId: req.session.user.id } });
-            const studentData = await db.users.findOne({ where: { id: req.params.id } });
+            if (req.session.user.permission === 'instructor') {
 
-            const studentResult = await db.csisResult.findOne({ where: { userId: req.params.id, courseName: instructorData.courseName } });
-            res.render("instructor/insructorComponents/editPage.ejs", {
-                currentUser: req.session.user, studentResult, studentData
-            });
+                const instructorData = await db.instructor.findOne({ where: { userId: req.session.user.id } });
+                const studentData = await db.users.findOne({ where: { id: req.params.id } });
+
+                const studentResult = await db.csisResult.findOne({ where: { userId: req.params.id, courseName: instructorData.courseName } });
+                res.render("instructor/insructorComponents/editPage.ejs", {
+                    currentUser: req.session.user, studentResult, studentData
+                });
+            } else {
+                res.send('<h1 style="text-align: center">You can not access this page you not have a permission</h1>')
+            }
 
         } else {
             res.redirect('/');

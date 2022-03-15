@@ -7,15 +7,6 @@ const methods = {
         
         try {
         
-            if (req.session.user && req.cookies.user_sid) {
-                var studentResult = await db.csisResult.findAll({ where: { userId: 20210000, courseName: 'math1' } });
-                res.render("instructor/insructorComponents/editPage.ejs", {
-                    currentUser: req.session.user, hello:'hhh'
-                });
-
-            } else {
-                res.redirect('/');
-            }
 
 
 
