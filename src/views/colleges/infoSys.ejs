@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>o6u | <%= title %></title>
+    <!-- css -->
+    <%- include('../../bootstrab/syles.ejs') %>
+  </head>
+  <body>
+    <header><%- include('../layout/navbar.ejs') %></header>
+    <main>
+      <%- include('./collegesComponents/landing.ejs') %>
+      <section class="container pt-5 pb-5  mb-5">
+        <%- include('./collegesComponents/news.ejs') %>
+      </section>
+      <%- include('../layout/footer.ejs') %>
+    </main>
+    <!-- js -->
+    <%- include('../../bootstrab/js.ejs') %>
+  </body>
+</html>

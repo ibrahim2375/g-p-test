@@ -1,28 +1,18 @@
-<% const colleges=[{title:'Applied Arts',img:'/images/Arts.jpg'},
-{title:'Economics & Management',img:'/images/Economics.jpg'},
-{title:'Engineering',img:'/images/engineering.jpg'},
-{title:'Faculty of Nursing',img:'/images/nursing.jpg'},
-{title:'Info. Systems & Comp.Science',img:'/images/infosys.jpg'},
-{title:'Languages&Translation',img:'/images/languages.jpg'},
- {title:'Media & Mass Comm',img:'/images/media.jpg'},
- {title:'Medicine',img:'/images/medicine.jpg'},
- {title:'Pharmacy',img:'/images/pharmacy.jpg'},
- {title:'Physical Therapy',img:'/images/physical.jpg'},
- {title:'Postgraduate Studies',img:'/images/postgraduate.png'},
- {title:'Tourism and Hotels',img:'/images/tourism.png'},
-]%>
+
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <% colleges.forEach((col) => { %>
   <!-- card -->
-  <div class="col">
-    <div class="card h-100">
-      <img src="<%= col.img %>" class="card-img-top" alt="Palm Springs Road" />
-      <div class="card-body">
-        <h5 class="card-title"><%= col.title %></h5>
+  <a href="<%= col.url %>">
+    <div class="col">
+      <div class="card h-100">
+        <img src="<%= col.img %>" class="card-img-top" alt="Palm Springs Road" />
+        <div class="card-body">
+          <h5 class="card-title text-dark"><%= col.title %></h5>
+        </div>
       </div>
     </div>
-  </div>
+  </a>
   <!-- card -->
   <% }) %>
 </div>

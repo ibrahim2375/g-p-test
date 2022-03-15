@@ -12,8 +12,8 @@
     <%- include('../../../bootstrab/syles.ejs') %>
   </head>
   <body>
-    <main class="container mt-5">
-      <div style="position: absolute; top: 50px; right: 50px; font-size: 40px">
+    <main class="container mt-5" style="position: relative">
+      <div style="position: absolute; top: 0px; right: 15px; font-size: 40px">
         <a href="/instructoredit" style="color: black">
           <i class="fa-solid fa-xmark"></i>
         </a>
@@ -51,7 +51,7 @@
             type="text"
             id="form5Example1"
             class="form-control"
-               name="quiz2"
+            name="quiz2"
             value="<%= studentResult.quiz2 %>"
           />
           <label class="form-label" for="form5Example1">Quiz2</label>
@@ -73,7 +73,7 @@
             type="text"
             id="form5Example1"
             class="form-control"
-             name="practical"
+            name="practical"
             value="<%= studentResult.practical %>"
           />
           <label class="form-label" for="form5Example1">Practical</label>

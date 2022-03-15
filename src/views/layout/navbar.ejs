@@ -20,7 +20,10 @@
       id="navbarCenteredExample"
     >
       <!-- Left links -->
-      <ul class="navbar-nav mb-2 mb-lg-0">
+      <ul
+        class="navbar-nav mb-2 mb-lg-0"
+        style="font-size: larger; font-weight: bold"
+      >
         <li class="nav-item">
           <a class="nav-link" href="/">Home</a>
         </li>
@@ -63,7 +66,7 @@
             </li>
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <a class="dropdown-item" href="#"
+              <a class="dropdown-item" href="/infoSys"
                 >Info. Systems & Comp. Science</a
               >
             </li>
@@ -78,13 +81,13 @@
         <li class="nav-item">
           <a class="nav-link" href="/user">Student</a>
         </li>
-        <% } %> <% } %> 
-        <% if(currentUser){ %> <% if(currentUser.permission ==='instructor' ){ %>
+        <% } %> <% } %> <% if(currentUser){ %> <% if(currentUser.permission
+        ==='instructor' ){ %>
         <li class="nav-item">
           <a class="nav-link" href="/instructor">Instructor</a>
         </li>
-        <% } %> <% } %>
-        <% if(currentUser){ %> <% if(currentUser.permission ==='parent' ){ %>
+        <% } %> <% } %> <% if(currentUser){ %> <% if(currentUser.permission
+        ==='parent' ){ %>
         <li class="nav-item">
           <a class="nav-link" href="/parent">Parent</a>
         </li>
@@ -106,10 +109,12 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <!-- admission items -->
             <li>
-              <a class="dropdown-item" href="#">Tuition Fees</a>
+              <a class="dropdown-item" href="/tuitionfees">Tuition Fees</a>
             </li>
             <li>
-              <a class="dropdown-item" href="#">Requierd Documents</a>
+              <a class="dropdown-item" href="/requierddocuments"
+                >Requierd Documents</a
+              >
               <a class="dropdown-item" href="#">Transfer Rules</a>
             </li>
             <li><hr class="dropdown-divider" /></li>

@@ -15,6 +15,11 @@ router.use('/archive', require('./archive'))
 router.use('/login', require('./login'))
 router.use('/logout', require('./logout'))
 router.use('/api', require('./api'))
+//colleges
+router.use('/infoSys', require('./infoSysPage'));
+//Tuition pages
+router.use('/tuitionfees', require('./tuitionFees'));
+router.use('/requierddocuments', require('./requierdDocuments'));
 
 //send data of login of parent  for this page 
 
