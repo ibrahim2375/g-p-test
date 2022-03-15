@@ -1,4 +1,5 @@
 .iconToggle {
+   cursor: pointer;
   position: fixed;
   z-index: 99999;
   border: 1px solid #cccc;
@@ -137,4 +138,9 @@
   #sidebar-wrapper {
     width: 0;
   }
+  .iconToggle {
+ 
+  margin: 5px 0 0 5px;
+
+}
 }

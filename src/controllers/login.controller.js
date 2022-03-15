@@ -1,12 +1,12 @@
 require('dotenv').config();
 var session = require('express-session');
 var db = require('../../models');
-var errors = [];
+var message = [];
 
 const methods = {
     async getLogin(req, res) {
         try {
-            res.render('Login/login.ejs', { errors });
+            res.render('Login/login.ejs', { message });
 
         } catch (error) {
             res.error(error.message, error.status)
@@ -20,27 +20,15 @@ const methods = {
             //sequelize check user
             await db.users.findOne({ where: { email: username, password: password } }).then(function (user) {
                 if (!user) {
-
+                    message.push("email not correct or password");
                     res.redirect('/login');
+
                 } else {
                     req.session.user = user.dataValues;
+                    message.pop();
                     res.redirect('/');
                 }
             });
-
-            //check parents
-            // var parentId = req.body.keyParent;
-            // if (parentId !== null) {
-            //     await db.parent.findOne({ where: { key: parentId } }).then(function (user) {
-            //         if (!user) {
-
-            //             res.redirect('/login');
-            //         } else {
-            //             req.session.user = user.dataValues;
-            //             res.redirect('/');
-            //         }
-            //     })
-            // }
 
 
         } catch (error) {

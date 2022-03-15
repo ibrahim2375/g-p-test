@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const session = require('express-session');
 const db = require('../../../models');
+const message = [];
 router.post('/', async (req, res) => {
     //check parents
 
@@ -9,9 +10,13 @@ router.post('/', async (req, res) => {
     if (parentId !== null) {
         await db.parent.findOne({ where: { key: parentId } }).then(function (user) {
             if (!user) {
-                res.redirect('/login');
+                message.push("key is not correct");
+                res.render('Login/login.ejs', { message });
+               
+                // res.redirect('/login');
             } else {
                 req.session.user = user.dataValues;
+                message.pop();
                 res.redirect('/');
             }
         })

@@ -26,26 +26,28 @@ const methods = {
             // let result =  await Service.getUsers();
             // console.log("res", result);
 
-                if (req.session.user && req.cookies.user_sid) {
-    
+            if (req.session.user && req.cookies.user_sid) {
 
-                    await db.users.findOne({ where: { email: req.session.user.email }, include: [db.csisStudent] }).then(function (user) {
-                       
-                        if (!user) {
-                            res.redirect('/')
-                        } else {
-                         
-                            res.render("users/student.ejs", { currentUser: req.session.user, studentData: user });
-                        }
-                    });
+                const user = await db.users.findOne({ where: { email: req.session.user.email }, include: [db.csisStudent] });
+                const getAcadmicAdvisorInfo = await db.acadmicInfo.findOne({ where: { level: user.csisStudents[0].level } });
+                // console.log(getAcadmicAdvisorInfo.name)
 
+                if (!user) {
+                    res.redirect('/')
                 } else {
-                    res.redirect('/login');
+
+
+                    res.render("users/student.ejs", { currentUser: req.session.user, studentData: user, getAcadmicAdvisorInfo });
                 }
 
-            } catch (error) {
-                res.error(error.message, error.status)
+
+            } else {
+                res.redirect('/login');
             }
+
+        } catch (error) {
+            res.error(error.message, error.status)
+        }
     }
 }
 

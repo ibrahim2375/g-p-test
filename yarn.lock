@@ -547,6 +547,11 @@
     "write-file-atomic" "^3.0.0"
     "xdg-basedir" "^4.0.0"
 
+"connect-flash@^0.1.1":
+  "integrity" "sha1-2GMPJtlaf4UfmVax6MxnMvO2qjA="
+  "resolved" "https://registry.npmjs.org/connect-flash/-/connect-flash-0.1.1.tgz"
+  "version" "0.1.1"
+
 "console-control-strings@^1.0.0", "console-control-strings@~1.1.0":
   "integrity" "sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4="
   "resolved" "https://registry.npmjs.org/console-control-strings/-/console-control-strings-1.1.0.tgz"

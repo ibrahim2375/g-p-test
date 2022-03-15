@@ -3,7 +3,7 @@ const express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-
+// const flash = require('connect-flash');
 // const db = require('./models');
 //new
 
@@ -14,7 +14,13 @@ require('dotenv').config();
 const port = 3000
 const host = '127.0.0.1'
 
+//message
+// app.use(flash());
 
+// app.use(function (req, res, next) {
+//     res.locals.message = req.flash();
+//     next();
+// });
 //new
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -56,12 +62,6 @@ const indexRouter = require('./src/routes/index');
 
 app.use('/', indexRouter);
 
-//new
-//connect to db edit
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-//connect to db edit
-//new
 
 //image
 app.use(express.static("public"));

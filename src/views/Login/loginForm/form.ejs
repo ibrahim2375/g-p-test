@@ -95,11 +95,6 @@
         >
           Sign in
         </button>
-        <% if(errors.length > 0) { %>
-        <!-- errors -->
-        <div class="alert alert-danger" role="alert"><%= errors %></div>
-        <!-- errors -->
-        <% } %>
       </form>
     </div>
 
@@ -142,8 +137,16 @@
         <button type="submit" class="btn btn-primary btn-block mb-3">
           Sign in
         </button>
+        <!-- errors -->
+
+        <!-- errors -->
       </form>
     </div>
   </div>
   <!-- Pills content -->
+   <!-- errors -->
+        <% if(message.length > 0) { %>
+        <div class="alert alert-danger mt-2 " style="font-size: 12px;"  role="alert"><%= message[0] %></div>
+        <% } %>
+        <!-- errors -->
 </div>
