@@ -9,7 +9,7 @@ const methods = {
                 { title: 'Economics & Management', img: '/images/Economics.jpg', url: 'http://' },
                 { title: 'Engineering', img: '/images/engineering.jpg', url: 'http://' },
                 { title: 'Faculty of Nursing', img: '/images/nursing.jpg', url: 'http://' },
-                { title: 'Info. Systems & Comp.Science', img: '/images/infosys.jpg', url: '/infoSys' },
+                { title: 'Info. Systems & Comp.Science', img: '/images/infosys.jpg', url: '/infoSysCourses' },
                 { title: 'Languages&Translation', img: '/images/languages.jpg', url: 'http://' },
                 { title: 'Media & Mass Comm', img: '/images/media.jpg', url: 'http://' },
                 { title: 'Medicine', img: '/images/medicine.jpg', url: 'http://' },

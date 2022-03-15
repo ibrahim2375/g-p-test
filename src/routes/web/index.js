@@ -17,6 +17,9 @@ router.use('/logout', require('./logout'))
 router.use('/api', require('./api'))
 //colleges
 router.use('/infoSys', require('./infoSysPage'));
+//colleges courses
+router.use('/infoSysCourses', require('./infoSysCourses'));
+
 //Tuition pages
 router.use('/tuitionfees', require('./tuitionFees'));
 router.use('/requierddocuments', require('./requierdDocuments'));
