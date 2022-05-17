@@ -3,9 +3,7 @@ const express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-// const flash = require('connect-flash');
-// const db = require('./models');
-//new
+
 
 const app = express();
 require('dotenv').config();
@@ -14,14 +12,6 @@ require('dotenv').config();
 const port = 3000
 const host = '127.0.0.1'
 
-//message
-// app.use(flash());
-
-// app.use(function (req, res, next) {
-//     res.locals.message = req.flash();
-//     next();
-// });
-//new
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({
@@ -33,15 +23,12 @@ app.use(session({
         expires: 600000
     }
 }));
-//new
 
 const createError = require('http-errors');
 
 app.set('views', __dirname + '/src/views');
 app.set('view engine', 'ejs')
 
-
-//new
 app.use((req, res, next) => {
     if (req.cookies.user_sid && !req.session.user) {
         res.clearCookie('user_sid');
@@ -49,8 +36,6 @@ app.use((req, res, next) => {
     next();
 });
 
-
-//new
 
 // call sysc()
 const db = require("./models");
@@ -61,7 +46,6 @@ db.sequelize.sync();
 const indexRouter = require('./src/routes/index');
 
 app.use('/', indexRouter);
-
 
 //image
 app.use(express.static("public"));
@@ -79,7 +63,6 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.json(err);
 });
-
 
 app.listen(port, host, () => {
     console.log(`Server running at http://${host}:${port}/`);

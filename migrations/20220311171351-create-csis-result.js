@@ -14,6 +14,9 @@ module.exports = {
       courseName: {
         type: Sequelize.STRING
       },
+      code: {
+        type: Sequelize.INTEGER
+      },
       quiz1: {
         type: Sequelize.FLOAT
       },
@@ -34,6 +37,10 @@ module.exports = {
       },
       total: {
         type: Sequelize.FLOAT
+      },
+
+      pass: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,

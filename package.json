@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node app.js",
     "web": "nodemon app.js"
-  },
+    },
   "author": "Graduation project",
   "license": "ISC",
   "dependencies": {

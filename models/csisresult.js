@@ -16,13 +16,15 @@ module.exports = (sequelize, DataTypes) => {
   }
   csisResult.init({
     courseName: DataTypes.STRING,
+    code: DataTypes.INTEGER,
     quiz1: DataTypes.FLOAT,
     midTerm: DataTypes.FLOAT,
     quiz2: DataTypes.FLOAT,
     attendance: DataTypes.FLOAT,
     practical: DataTypes.FLOAT,
     final: DataTypes.FLOAT,
-    total: DataTypes.FLOAT
+    total: DataTypes.FLOAT,
+    pass: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'csisResult',
