@@ -2,14 +2,17 @@
   <div class="container-fluid">
     <div class="mt-5">
       <h1 class="display-3">Profile</h1>
-      <table class="table border border-2" style="font-weight: bold; font-size:larger">
-        <thead  style="font-weight: bold; font-size:larger">
+      <table
+        class="table border border-2"
+        style="font-weight: bold; font-size: larger"
+      >
+        <thead style="font-weight: bold; font-size: larger">
           <tr>
             <th scope="col">Basic</th>
             <th scope="col">Info</th>
           </tr>
         </thead>
-        <tbody  style="font-weight: bold; font-size:larger">
+        <tbody style="font-weight: bold; font-size: larger">
           <tr>
             <td>Name</td>
             <td><%= studentData.name %></td>
@@ -49,7 +52,7 @@
           </tr>
           <tr>
             <td>GPA</td>
-            <td></td>
+            <td><%= studentData.csisStudents[0].gpas %></td>
           </tr>
         </tbody>
       </table>

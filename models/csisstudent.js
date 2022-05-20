@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   csisStudent.init({
     level: DataTypes.INTEGER,
     nationality: DataTypes.STRING,
+    gpas: DataTypes.FLOAT,
   }, {
     sequelize,
     modelName: 'csisStudent',

@@ -14,6 +14,9 @@ module.exports = {
       nationality: {
         type: Sequelize.STRING
       },
+      gpas: {
+        type: Sequelize.FLOAT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -19,23 +19,44 @@ const methods = {
                     studentResult.forEach(function (studentRe) {
                         // console.log(studentRe.courseName);
                         if (studentRe.courseName === material.materialName) {
-                            count += 1;
-                            console.log("matrialName: ", material.materialName, " total: ", material.total, " student: ", studentRe.total);
+                            // console.log("matrialName: ", material.materialName, " total: ", material.total, " student: ", studentRe.total);
                             GpaCalculation = studentRe.total / material.total * 4;
-                            console.log("gpa of ", studentRe.courseName, " is : ", GpaCalculation);
+                            count += 1;
+                            // console.log("gpa of ", studentRe.courseName, " is : ", GpaCalculation);
                             TotalGpa += GpaCalculation;
-                            console.log(TotalGpa);
-                            TotalgpasFrom4 = count * 4;
-                            gpas = TotalGpa / TotalgpasFrom4 * 4;
                         }
                     });
+                    // gpas = 0;
 
                 });
-                console.log("no of materials: ",count, " total of gpa matrial: ", TotalgpasFrom4 , " total of student from all matrial : ",gpas);
-                // GpaCalculation = studentResult[0].total / materials[4].total * 4;
+                // console.log(GpaCalculation);
+                TotalgpasFrom4 = count * 4;
+                gpas = TotalGpa / TotalgpasFrom4 * 4;
+                TotalgpasFrom4 = 0, count = 0, TotalGpa = 0;
+                // update gpas
+                if (gpas <= 4) {
+                    var gpasAccurated = Math.round((gpas + Number.EPSILON) * 100) / 100;
+                    const updateGpa = await db.csisStudent.update({ gpas: gpasAccurated }, {
+                        where: {
+                            userId: req.session.user.id
+                        }
+                    }).then(function (result) {
 
+                        console.log(result, " Updated gpa");
+
+                    });
+                } else {
+                    console.log("can't updated");
+                }
+
+                // update gpas
+
+                // console.log("no of materials: ", count, " total of gpa matrial: ", TotalgpasFrom4, " total of student from all matrial : ", gpas);
+                // GpaCalculation = studentResult[0].total / materials[4].total * 4;
+                //calculat accurate gpas
+                // var gpasAccurated = Math.round((gpas + Number.EPSILON) * 100) / 100;
                 res.render("users/studentLayout/AcadmicRecords.ejs", {
-                    currentUser: req.session.user, studentResult ,gpas
+                    currentUser: req.session.user, studentResult, gpasAccurated
                 });
             } else {
                 res.redirect('/');
