@@ -2,8 +2,11 @@
   <div class="container-fluid">
     <h1 class="display-3">Result</h1>
 
-    <table class="table table-bordered border-dark">
-      <thead>
+    <table
+      class="table table-bordered border-dark"
+      style="font-weight: bold; font-size: larger"
+    >
+      <thead style="font-weight: bold; font-size: larger">
         <tr>
           <th>CourseName</th>
           <th>Quiz1</th>
@@ -15,7 +18,7 @@
           <!-- <th>pass</th> -->
         </tr>
       </thead>
-      <tbody>
+      <tbody style="font-weight: bold; font-size: large">
         <% studentResult.forEach((result) => { %>
         <tr>
           <td><%= result.courseName %></td>
