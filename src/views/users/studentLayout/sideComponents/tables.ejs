@@ -1,19 +1,19 @@
-<div id="page-content-wrapper">
-  <div class="container-fluid">
-    <h1>Tables</h1>
+<div id="page-content-wrapper " >
+  <div class="container-fluid" >
+    <h1 class="display-3" >Tables</h1>
     <div
       style="
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 50px;
+        gap: 10%;
         justify-content: center;
         align-items: center;
       "
     >
       <% tablesOfYears.forEach(function (table) { %>
-      <a href="<%= table.url%>">
-        <div class="card text-white bg-dark mb-3 p-3" style="max-width: 18rem">
+      <a href="<%= table.url%>" style="width: 40%; height: 300px;">
+        <div class="card text-white bg-dark mb-3 p-4" style="max-width: 30rem">
           <div class="card-header">Table</div>
           <div class="card-body">
             <h5 class="card-title">Level <%= table.level %></h5>

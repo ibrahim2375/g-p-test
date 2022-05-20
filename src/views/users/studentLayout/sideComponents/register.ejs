@@ -1,11 +1,11 @@
 <div id="page-content-wrapper">
   <div class="container-fluid">
-    <h1>Pre Registeration</h1>
+    <h1 class="display-3">Pre Registeration</h1>
     <% if(!checkR) { %>
     <form action="/registeration" method="post">
       <!-- loop for matrials -->
-      <table class="table align-middle border border-1">
-        <thead>
+      <table class="table align-middle border border-2"  style="font-weight: bold; font-size:larger">
+        <thead  style="font-weight: bold; font-size:larger">
           <tr>
             <th scope="col"><h4>Course Name</h4></th>
             <th scope="col"><h4>Code</h4></th>
@@ -14,7 +14,7 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody  style="font-weight: bold; font-size:large">
           <% showMaterials.forEach(function (m,index) { %>
           <tr>
             <td><% const mnames = [m.materialName] %> <%= m.materialName %></td>
@@ -33,7 +33,6 @@
               </div>
             </td>
           </tr>
-
           <% }) %>
           <td colspan="3"><h4>Total Hours</h4></td>
           
@@ -42,7 +41,7 @@
         </tbody>
       </table>
 
-      <input class="btn btn-dark" type="submit" value="Register" />
+      <input class="btn btn-dark btn-lg" type="submit" value="Register" />
     </form>
     <% } %> <% if(message.length > 0) { %>
     <div class="alert alert-success alert-dismissible fade show" role="alert">

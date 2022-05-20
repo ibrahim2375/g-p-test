@@ -1,13 +1,13 @@
 <div class="">
   <div class="p-3">
-    <h2 class="text-center">Your Information</h2>
+    <h2 class="text-center">Parent Information</h2>
     <h4>Name : <%= currentUser.name %></h4>
     <h4>Key : <%= currentUser.key %></h4>
     <h4>Nationality : <%= currentUser.nationality %></h4>
   </div>
   <hr />
   <div class="p-3">
-    <h2 class="text-center">Son Information</h2>
+    <h2 class="text-center">Student Information</h2>
     <h4>Name: <%= sonData.user.name %></h4>
     <h4>Id: <%= sonData.user.id %></h4>
     <h4>level: <%= sonData.level %></h4>
@@ -19,14 +19,14 @@
   <table class="table table-bordered border-dark">
     <thead>
       <tr>
-        <th>courseName</th>
-        <th>quiz1</th>
-        <th>midterm</th>
-        <th>quiz2</th>
-        <th>attendance</th>
-        <th>final</th>
-        <th>total degrees</th>
-        <th>pass</th>
+        <th>CourseName</th>
+        <th>Quiz1</th>
+        <th>Midterm</th>
+        <th>Quiz2</th>
+        <th>Attendance</th>
+        <th>Final</th>
+        <th>Total Markes</th>
+        <!-- <th>pass</th> -->
       </tr>
     </thead>
     <tbody>
@@ -39,7 +39,7 @@
         <th><%= result.attendance %></th>
         <th><%= result.final %></th>
         <td><%= result.total %></td>
-         <td><%= result.pass %></td>
+        <!-- <td><%= result.pass %></td> -->
       </tr>
       <% }) %>
     </tbody>

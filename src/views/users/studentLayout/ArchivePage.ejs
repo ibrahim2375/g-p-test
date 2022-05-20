@@ -20,7 +20,7 @@
       </div>
       <!-- Sidebar -->
       <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
+        <ul class="sidebar-nav" style="font-size: larger; font-weight: bold">
           <li class="sidebar-brand mt-4">
             <a href="#"> Dashboard </a>
           </li>
@@ -48,19 +48,25 @@
 
       <!-- Page Content -->
       <!-- matrials data -->
-      <main class = "container pt-5">
-        <table class="table table-bordered border-dark">
-          <thead class="table table-dark">
+      <main class="container pt-5">
+        <table
+          class="table table-bordered border-dark"
+          style="font-weight: bold; font-size: larger"
+        >
+          <thead
+            class="table table-dark"
+            style="font-weight: bold; font-size: larger"
+          >
             <tr>
-              <th>courseName</th>
-              <th>code</th>
-              <th>level</th>
-              <th>hours</th>
-              <th>semester</th>
-              <th>Total degrees</th>
+              <th>CourseName</th>
+              <th>Code</th>
+              <th>Level</th>
+              <th>Hours</th>
+              <th>Semester</th>
+              <th>Total Markes</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style="font-weight: bold; font-size: large">
             <% matrialData.forEach(function(course) { %>
             <tr>
               <th><%= course.materialName %></th>

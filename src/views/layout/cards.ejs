@@ -1,18 +1,12 @@
 <div class="row row-cols-1 row-cols-md-3 g-4 mt-5 p-2">
   <!-- Last updated 6 m ago -->
   <% infoInCards.forEach(function (info) { %>
-    <div class="col">
-      <div class="card h-100">
-      <img
-        src="<%= info.img %>"
-        class="card-img-top"
-        alt="Skyscrapers"
-      />
+  <div class="col">
+    <div class="card h-100">
+      <img src="<%= info.img %>" class="card-img-top" alt="Skyscrapers" />
       <div class="card-body">
-        <h5 class="card-title"><%= info.title %></h5>
-        <p class="card-text">
-         <%= info.desc %>
-        </p>
+        <h2 class="card-title"><%= info.title %></h2>
+        <h5 class="card-text"><%= info.desc %></h5>
       </div>
       <div class="card-footer">
         <small class="text-muted"><%= info.time %></small>
@@ -20,5 +14,4 @@
     </div>
   </div>
   <% }) %>
- 
 </div>

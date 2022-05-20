@@ -8,6 +8,7 @@
         data-mdb-target="#collapseOne"
         aria-expanded="true"
         aria-controls="collapseOne"
+        style="font-size: 28px"
       >
         Level 1
       </button>
@@ -18,20 +19,34 @@
       aria-labelledby="headingOne"
       data-mdb-parent="#accordionExample"
     >
-      <div class="accordion-body">
-        <h1>First Semester</h1>
-        <ul>
-          <% coursesLevel1First.forEach((result) => { %>
-          <li><a href="<%= result.url %>"> <%= result.course %></a></li>
-          <% }) %>
-        </ul>
-        <h1>Second Semester</h1>
-        <ul>
-          
-           <% coursesLevel1Second.forEach((result) => { %>
-         <li><a href="<%= result.url %>"> <%= result.course %></a></li>
-             <% }) %>
-        </ul>
+      <div
+        class="accordion-body d-flex justify-content-center align-content-center flex-wrap"
+        style="gap: 20%"
+      >
+        <!-- part1 -->
+        <div>
+          <h1>First Semester</h1>
+          <ul>
+            <% coursesLevel1First.forEach((result) => { %>
+            <li style="font-size: 24px">
+              <a href="<%= result.url %>"> <%= result.course %></a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+        <!-- part1 -->
+        <!-- part2 -->
+        <div>
+          <h1>Second Semester</h1>
+          <ul>
+            <% coursesLevel1Second.forEach((result) => { %>
+            <li style="font-size: 24px">
+              <a href="<%= result.url %>"> <%= result.course %></a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+        <!-- part2 -->
       </div>
     </div>
   </div>
@@ -44,6 +59,7 @@
         data-mdb-target="#collapseTwo"
         aria-expanded="false"
         aria-controls="collapseTwo"
+        style="font-size: 28px"
       >
         Level 2
       </button>
@@ -54,20 +70,34 @@
       aria-labelledby="headingTwo"
       data-mdb-parent="#accordionExample"
     >
-     <div class="accordion-body">
-        <h1>First Semester</h1>
-        <ul>
-          <% coursesLevel2First.forEach((result) => { %>
-          <li><a href="<%= result.url %>"> <%= result.course %></a></li>
-          <% }) %>
-        </ul>
-        <h1>Second Semester</h1>
-        <ul>
-          
-           <% coursesLevel2Second.forEach((result) => { %>
-         <li><a href="<%= result.url %>"> <%= result.course %></a></li>
-             <% }) %>
-        </ul>
+      <div
+        class="accordion-body d-flex justify-content-center align-content-center flex-wrap"
+        style="gap: 20%"
+      >
+        <!-- part1 -->
+        <div>
+          <h1>First Semester</h1>
+          <ul>
+            <% coursesLevel2First.forEach((result) => { %>
+            <li style="font-size: 24px">
+              <a href="<%= result.url %>"> <%= result.course %></a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+        <!-- part1 -->
+        <!-- part2 -->
+        <div>
+          <h1>Second Semester</h1>
+          <ul>
+            <% coursesLevel2Second.forEach((result) => { %>
+            <li style="font-size: 24px">
+              <a href="<%= result.url %>"> <%= result.course %></a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+        <!-- part2 -->
       </div>
     </div>
   </div>
@@ -80,6 +110,7 @@
         data-mdb-target="#collapseThree"
         aria-expanded="false"
         aria-controls="collapseThree"
+        style="font-size: 28px"
       >
         Level 3
       </button>
@@ -90,20 +121,34 @@
       aria-labelledby="headingThree"
       data-mdb-parent="#accordionExample"
     >
-      <div class="accordion-body">
-        <h1>First Semester</h1>
-        <ul>
-          <% coursesLevel3First.forEach((result,i) => { %>
-          <li><a href="<%= result.url %>"> <%= result.course %></a></li>
-          <% }) %>
-        </ul>
-        <h1>Second Semester</h1>
-        <ul>
-          
-           <% coursesLevel3Second.forEach((result,i) => { %>
-         <li><a href="<%= result.url %>"> <%= result.course %></a></li>
-             <% }) %>
-        </ul>
+      <div
+        class="accordion-body d-flex justify-content-center align-content-center flex-wrap"
+        style="gap: 20%"
+      >
+        <!-- part1 -->
+        <div>
+          <h1>First Semester</h1>
+          <ul>
+            <% coursesLevel3First.forEach((result,i) => { %>
+            <li style="font-size: 24px">
+              <a href="<%= result.url %>"> <%= result.course %></a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+        <!-- part1 -->
+        <!-- part2 -->
+        <div>
+          <h1>Second Semester</h1>
+          <ul>
+            <% coursesLevel3Second.forEach((result,i) => { %>
+            <li style="font-size: 24px">
+              <a href="<%= result.url %>"> <%= result.course %></a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+        <!-- part2 -->
       </div>
     </div>
   </div>
@@ -116,6 +161,7 @@
         data-mdb-target="#collapseFour"
         aria-expanded="false"
         aria-controls="collapseFour"
+        style="font-size: 28px"
       >
         Level 4
       </button>
@@ -126,20 +172,34 @@
       aria-labelledby="headingThree"
       data-mdb-parent="#accordionExample"
     >
-      <div class="accordion-body">
-        <h1>First Semester</h1>
-        <ul>
-          <% coursesLevel4First.forEach((result,i) => { %>
-          <li><a href="<%= result.url %>"> <%= result.course %></a></li>
-          <% }) %>
-        </ul>
-        <h1>Second Semester</h1>
-        <ul>
-          
-           <% coursesLevel4Second.forEach((result,i) => { %>
-         <li><a href="<%= result.url %>"> <%= result.course %></a></li>
-             <% }) %>
-        </ul>
+      <div
+        class="accordion-body d-flex justify-content-center align-content-center flex-wrap"
+        style="gap: 20%"
+      >
+        <!-- part1 -->
+        <div>
+          <h1>First Semester</h1>
+          <ul>
+            <% coursesLevel4First.forEach((result,i) => { %>
+            <li style="font-size: 24px">
+              <a href="<%= result.url %>"> <%= result.course %></a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+        <!-- part1 -->
+        <!-- part2 -->
+        <div>
+          <h1>Second Semester</h1>
+          <ul>
+            <% coursesLevel4Second.forEach((result,i) => { %>
+            <li style="font-size: 24px">
+              <a href="<%= result.url %>"> <%= result.course %></a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+        <!-- part2 -->
       </div>
     </div>
   </div>

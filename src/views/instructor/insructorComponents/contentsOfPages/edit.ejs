@@ -4,7 +4,7 @@
   <form action="/instructoredit" method="post" novalidate >
     <div class="input-group">
       <div class="form-outline">
-      <input id="search-input" type="search" id="form1" class="form-control"  name="search"/>
+      <input id="search-input" type="search" id="form1" class="form-control"  name="search" style="font-size: 22px;"/>
       <label class="form-label" for="form1">Search</label>
     </div>
     <button id="search-button" type="submit" class="btn btn-dark">
@@ -13,10 +13,10 @@
   </div>
 </form>
   
-  <h2><%= dataOfInstructor.instructors[0].courseName %></h2>
+  <h2 class="display-2"><%= dataOfInstructor.instructors[0].courseName %></h2>
   <!-- search -->
-  <table class="table align-middle border border-1">
-    <thead>
+  <table class="table align-middle border border-2"  style="font-size: larger; font-weight: bold">
+    <thead  style="font-size: larger; font-weight: bold">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Id</th>
@@ -30,7 +30,7 @@
         <th scope="col">Action</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody  style="font-size: large; font-weight: bold">
         <% studentRegisteredCourse.forEach(function(student, index) { %>
         
          

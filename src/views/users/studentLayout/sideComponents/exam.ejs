@@ -1,6 +1,6 @@
 <div id="page-content-wrapper">
   <div class="container-fluid">
-    <h1>Exams Tables</h1>
+    <h1 class="display-3">Exams Tables</h1>
     <div
       style="
         display: flex;
@@ -12,11 +12,11 @@
       "
     >
       <% examsTablesOfYears.forEach(function (exam) { %>
-      <a href="<%= exam.url%>">
-        <div class="card text-white bg-dark mb-3 p-3" style="max-width: 18rem">
+      <a href="<%= exam.url%>" style="width: 40%; height: 300px">
+        <div class="card text-white bg-dark mb-0 p-3" style="max-width: 30rem">
           <div class="card-header"><%= exam.semester%></div>
           <div class="card-body">
-            <h5 class="card-title">Lvel <%= exam.level%></h5>
+            <h5 class="card-title">Level <%= exam.level%></h5>
             <p class="card-text"><%= exam.desc%></p>
           </div>
         </div>
