@@ -153,14 +153,40 @@ const methods = {
 
                 }/////////////////////////////
                 var checkUserRegistration = await db.registration.findOne({ where: { userId: req.session.user.id } });
+                var materials = await db.materials.findAll();
                 var checkRegistration = await db.registration.findAll({ where: { userId: req.session.user.id } });
                 if (checkUserRegistration) {
                     var showCoursesRegistered = checkRegistration;
                 }
+
+                //calculate total hours registered
+                var TotalHoursRegistered = 0;
+                //  console.log(materials.materialName);
+                materials.map(function (m) {
+                    checkRegistration.forEach(function (re) {
+                        if (re.courseName === m.materialName) {
+                            // console.log(m.hours);
+                            TotalHoursRegistered += m.hours;
+                        }
+                    })
+
+                });
+                // console.log(TotalHoursRegistered);
+                //update Total hours registered
+                const updateTotalHours = await db.csisStudent.update({ TotalHours: TotalHoursRegistered }, {
+                    where: {
+                        userId: req.session.user.id
+                    }
+                })
+
+
+                //calculate total hours registered
+
+
                 //new
                 res.render("users/studentLayout/RegisterationPage.ejs", {
                     currentUser: req.session.user, showMaterials: getMatrials, checkR: checkUserRegistration, checked: showCoursesRegistered
-                    , message, totalHours
+                    , message, totalHours, TotalHoursRegistered
                 })
             } else {
                 res.redirect('/');
@@ -199,9 +225,9 @@ const methods = {
                             }
 
                         });
-                   
+
                         res.redirect('/registeration');
-                  
+
                     } else {
                         res.redirect('/registeration')
 

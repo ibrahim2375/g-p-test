@@ -29,6 +29,9 @@ module.exports = {
       attendance: {
         type: Sequelize.FLOAT
       },
+      assignment: {
+        type: Sequelize.FLOAT
+      },
       practical: {
         type: Sequelize.FLOAT
       },

@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     midTerm: DataTypes.FLOAT,
     quiz2: DataTypes.FLOAT,
     attendance: DataTypes.FLOAT,
+    assignment: DataTypes.FLOAT,
     practical: DataTypes.FLOAT,
     final: DataTypes.FLOAT,
     total: DataTypes.FLOAT,

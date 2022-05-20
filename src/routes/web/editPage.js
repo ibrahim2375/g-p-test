@@ -45,12 +45,12 @@ router.post('/:id', async (req, res) => {
         if (!studentData) {
             res.redirect('/instructoredit');
         }
-        const { quiz1, quiz2, midTerm, attendance, practical, final } = req.body;
+        const { quiz1, quiz2, midTerm, attendance, assignment, practical, final } = req.body;
 
-        const totalOfValues = await parseFloat(quiz1) + parseFloat(quiz2) + parseFloat(midTerm) + parseFloat(attendance) + parseFloat(practical) + parseFloat(final);
+        const totalOfValues = await parseFloat(quiz1) + parseFloat(quiz2) + parseFloat(midTerm) + parseFloat(attendance) + parseFloat(assignment) + parseFloat(practical) + parseFloat(final);
 
 
-        await db.csisResult.update({ quiz1: quiz1, quiz2: quiz2, midTerm: midTerm, attendance: attendance, practical: practical, final: final, total: totalOfValues }, {
+        await db.csisResult.update({ quiz1: quiz1, quiz2: quiz2, midTerm: midTerm, attendance: attendance, assignment: assignment, practical: practical, final: final, total: totalOfValues }, {
             where: {
                 userId: req.params.id, courseName: instructorData.courseName
             }

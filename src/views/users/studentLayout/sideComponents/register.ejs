@@ -59,14 +59,14 @@
 
     <!-- new------------------------------------------------------>
     <% if(checkR) { %>
-    <table class="table align-middle">
-      <thead>
+    <table class="table align-middle" style="font-weight: bold; font-size:large">
+      <thead style="font-weight: bold; font-size:large">
         <tr>
           <th scope="col">Course Name</th>
         </tr>
       </thead>
 
-      <tbody>
+      <tbody style="font-weight: bold; font-size:large">
         <% checked.map(function (course) { %> <% if (course.courseName !== null)
         { %>
         <tr>

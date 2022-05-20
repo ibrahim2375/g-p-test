@@ -17,6 +17,9 @@ module.exports = {
       gpas: {
         type: Sequelize.FLOAT
       },
+      TotalHours: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
