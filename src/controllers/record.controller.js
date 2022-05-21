@@ -55,6 +55,26 @@ const methods = {
                 // GpaCalculation = studentResult[0].total / materials[4].total * 4;
                 //calculat accurate gpas
                 // var gpasAccurated = Math.round((gpas + Number.EPSILON) * 100) / 100;
+
+                ///calculate total TotalHours Registered from first term
+                var counterOfNumberOfM = 0;
+                var TotalHoursOfAllMaterials = 0;
+                materials.map(function (material) {
+
+                    studentResult.forEach(function (studentRe) {
+
+                        if (studentRe.courseName === material.materialName) {
+                            console.log(material.hours);
+                            TotalHoursOfAllMaterials += material.hours;
+
+                        }
+                    });
+
+
+                });
+                console.log(TotalHoursOfAllMaterials);
+                ///calculate total TotalHours Registered from first term
+
                 res.render("users/studentLayout/AcadmicRecords.ejs", {
                     currentUser: req.session.user, studentResult, gpasAccurated
                 });

@@ -8,6 +8,7 @@ var totalHours;
 const methods = {
     async getRegister(req, res) {
         try {
+
             // prerequisites: 0, materialName: getResults[0].courseName 
             if (req.session.user && req.cookies.user_sid) {
                 var getCurrentUserData = await db.csisStudent.findOne({ where: { userId: req.session.user.id }, include: [db.users] });
@@ -19,8 +20,8 @@ const methods = {
                         pass: 1, userId: req.session.user.id
                     }
                 });
-                let arrdata = [];
-                arrdata = showAllResult;
+                // showAllResult.map(result => console.log(result.pass))
+                // console.log(getResults0.length)
                 //get prerequisites
                 // console.log(showAllResult[1].courseName);
                 // check for first year not have any matrial ===== solve
@@ -42,112 +43,133 @@ const methods = {
                     ///////////////////////////////////////////////////////////
                     //check pre 
                     if (showAllResult.length > 0) {
+
                         if (getResults0.length > 0 && getResults1.length > 0) {
-                            getMatrials = await db.materials.findAll({
-                                where: {
-                                    [Op.or]: [
-                                        { materialName: getResults0[0].courseName },
-                                        {
-                                            prerequisites: showAllResult[0].code
-                                        },
-                                        {
-                                            [Op.not]: [
-                                                { materialName: getResults1[0].courseName }
-                                            ]
 
-                                        }
-                                    ]
-                                }, order: [['code']],
-                            });
-                            totalHours = await db.materials.sum('hours', {
-                                where: {
-                                    [Op.or]: [
-                                        { materialName: getResults0[0].courseName },
-                                        {
-                                            prerequisites: showAllResult[0].code
-                                        },
-                                        {
-                                            [Op.not]: [
-                                                { materialName: getResults1[0].courseName }
-                                            ]
+                            showAllResult.map(async function (all) {
+                                getResults1.map(async function (result1) {
+                                    getMatrials = await db.materials.findAll({
+                                        where: {
+                                            [Op.or]: [
 
-                                        }
-                                    ]
-                                }, order: [['code']],
+                                                {
+                                                    prerequisites: all.code
+                                                }
+                                                ,
+                                                {
+                                                    [Op.not]: [
+                                                        { materialName: result1.courseName }
+                                                    ]
+
+                                                }
+                                            ]
+                                        }, order: [['code']],
+                                    });
+
+
+                                    totalHours = await db.materials.sum('hours', {
+                                        where: {
+                                            [Op.or]: [
+
+                                                {
+                                                    prerequisites: all.code
+                                                }
+                                                ,
+                                                {
+                                                    [Op.not]: [
+                                                        { materialName: result1.courseName }
+                                                    ]
+
+                                                }
+                                            ]
+                                        }, order: [['code']],
+                                    });
+                                });
+
                             });
                         } else if (getResults0.length > 0 && getResults1.length === 0) {
-                            getMatrials = await db.materials.findAll({
-                                where: {
-                                    [Op.or]: [
-                                        { materialName: getResults0[0].courseName },
-                                        {
-                                            prerequisites: showAllResult[0].code
-                                        },
-                                        {
-                                            [Op.not]: [
-                                                { materialName: getResults0[0].courseName }
-                                            ], prerequisites: 0
+                            showAllResult.map(async function (all) {
+                                getResults0.map(async function (result0) {
+                                    getMatrials = await db.materials.findAll({
+                                        where: {
+                                            [Op.or]: [
+                                                {
+                                                    materialName: result0.courseName
+                                                },
+                                                {
+                                                    prerequisites: all.code
+                                                },
 
-                                        }
-                                    ]
-                                }, order: [['code']],
-                            });
-                            totalHours = await db.materials.sum('hours', {
-                                where: {
-                                    [Op.or]: [
-                                        { materialName: getResults0[0].courseName },
-                                        {
-                                            prerequisites: showAllResult[0].code
-                                        },
-                                        {
-                                            [Op.not]: [
-                                                { materialName: getResults0[0].courseName }
-                                            ], prerequisites: 0
+                                            ]
+                                        }, order: [['code']],
 
-                                        }
-                                    ]
-                                }, order: [['code']],
+                                    });
+                                    totalHours = await db.materials.sum('hours', {
+                                        where: {
+                                            [Op.or]: [
+                                                {
+                                                    materialName: result0.courseName
+                                                },
+                                                {
+                                                    prerequisites: all.code
+                                                },
+
+                                            ]
+                                        }, order: [['code']],
+                                    });
+                                });
                             });
                         }
                         else {
 
-                            getMatrials = await db.materials.findAll({
-                                where: {
-                                    [Op.or]: [
+                            getResults1.map(async function (result1) {
 
-                                        { level: getCurrentUserData.level },
-                                        // {
-                                        //     [Op.not]: [
+                                getMatrials = await db.materials.findAll({
+                                    where: {
+                                        [Op.and]: [
 
-                                        //         { materialName: showAllResult[0].courseName }
-                                        //     ]
-                                        // },
-                                        // { prerequisites: 0 }
-                                    ]
+                                            { level: getCurrentUserData.level },
+                                            {
+                                                [Op.not]: [
+
+                                                    { materialName: result1.courseName }
+                                                ]
+                                            },
+
+                                        ]
 
 
-                                }, order: [['code']],
+                                    }, order: [['code']],
+                                });
+
+
+
+                                totalHours = await db.materials.sum('hours', {
+                                    where: {
+                                        [Op.and]: [
+
+                                            { level: getCurrentUserData.level },
+                                            {
+                                                [Op.not]: [
+
+                                                    { materialName: result1.courseName }
+                                                ]
+                                            },
+
+                                        ]
+
+
+                                    }, order: [['code']],
+                                });
+
                             });
-                            totalHours = await db.materials.sum('hours', {
-                                where: {
 
-                                    [Op.or]: [
 
-                                        { level: getCurrentUserData.level },
-                                        // {
-                                        //     [Op.not]: [
-
-                                        //         { materialName: showAllResult[0].courseName }
-                                        //     ]
-                                        // },
-                                        // { prerequisites: 0 }
-                                    ]
-
-                                }, order: [['code']],
-                            });
 
                         }
+
                     }
+
 
 
 
