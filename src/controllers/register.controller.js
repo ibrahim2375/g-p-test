@@ -165,7 +165,6 @@ const methods = {
                 materials.map(function (m) {
                     checkRegistration.forEach(function (re) {
                         if (re.courseName === m.materialName) {
-                            // console.log(m.hours);
                             TotalHoursRegistered += m.hours;
                         }
                     })
@@ -181,13 +180,26 @@ const methods = {
 
 
                 //calculate total hours registered
+                //get data of materials
 
 
-                //new
+
+                // var materialsData = await db.materials.findAll({ where: { materialName: md.courseName } });
+                // checkRegistration.map(async function (md) {
+                //     let materialsData = await db.materials.findAll({ where: { materialName: md.courseName } });
+
+                //     materialsData.map(function (m){
+                //         console.log(m.code);
+                //     })
+
+                // var materials = await db.materials.findAll();
+                const user = await db.users.findOne({ where: { email: req.session.user.email }, include: [db.csisStudent] });
+                const getAcadmicAdvisorInfo = await db.acadmicInfo.findOne({ where: { level: user.csisStudents[0].level } });
                 res.render("users/studentLayout/RegisterationPage.ejs", {
                     currentUser: req.session.user, showMaterials: getMatrials, checkR: checkUserRegistration, checked: showCoursesRegistered
-                    , message, totalHours, TotalHoursRegistered
+                    , message, totalHours, TotalHoursRegistered, getAcadmicAdvisorInfo, user
                 })
+
             } else {
                 res.redirect('/');
             }

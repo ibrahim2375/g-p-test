@@ -4,8 +4,11 @@
     <% if(!checkR) { %>
     <form action="/registeration" method="post">
       <!-- loop for matrials -->
-      <table class="table align-middle border border-2"  style="font-weight: bold; font-size:larger">
-        <thead  style="font-weight: bold; font-size:larger">
+      <table
+        class="table align-middle border border-2"
+        style="font-weight: bold; font-size: larger"
+      >
+        <thead style="font-weight: bold; font-size: larger">
           <tr>
             <th scope="col"><h4>Course Name</h4></th>
             <th scope="col"><h4>Code</h4></th>
@@ -14,7 +17,7 @@
           </tr>
         </thead>
 
-        <tbody  style="font-weight: bold; font-size:large">
+        <tbody style="font-weight: bold; font-size: large">
           <% showMaterials.forEach(function (m,index) { %>
           <tr>
             <td><% const mnames = [m.materialName] %> <%= m.materialName %></td>
@@ -35,7 +38,7 @@
           </tr>
           <% }) %>
           <td colspan="3"><h4>Total Hours</h4></td>
-          
+
           <td><h4><%= totalHours %></h4></td>
           <td></td>
         </tbody>
@@ -58,27 +61,124 @@
     <% } %>
 
     <!-- new------------------------------------------------------>
-    <% if(checkR) { %>
-    <table class="table align-middle" style="font-weight: bold; font-size:large">
-      <thead style="font-weight: bold; font-size:large">
-        <tr>
-          <th scope="col">Course Name</th>
-        </tr>
-      </thead>
+    <div id="printContent">
+      <% if(checkR) { %>
+      <div class="mb-4">
+        <h5>
+          <%= checked[0].createdAt %> <span class="badge bg-primary">Date</span>
+        </h5>
 
-      <tbody style="font-weight: bold; font-size:large">
-        <% checked.map(function (course) { %> <% if (course.courseName !== null)
-        { %>
-        <tr>
-          <td><%= course.courseName %></td>
-        </tr>
-        <% } %> <% }) %>
-      </tbody>
-    </table>
-    <% } %>
+        <img
+          src="/images/o6u.png"
+          class="rounded mx-auto d-block"
+          style="width: 140px; height: 150px"
+          alt="..."
+        />
+        <h3 style="text-decoration: dotted; text-align: center">
+          Final registration form
+        </h3>
+      </div>
+      <div class="">
+        <div
+          class="data mb-3 d-flex justify-content-center align-center flex-wrap"
+          style="gap: 30%"
+        >
+          <div class="stName p-2" style="background-color: rgba(0, 0, 0, 0.2)">
+            <h1>Name : <%= user.name %></h1>
+          </div>
+          <div class="stid p-2" style="background-color: rgba(0, 0, 0, 0.2)">
+            <h1>Id : <%= user.id %></h1>
+          </div>
+        </div>
+        <div
+          class="acdemicAdvisor mb-3 p-2"
+          style="background-color: rgba(0, 0, 0, 0.2)"
+        >
+          <h1>Academic Advisor : <%= getAcadmicAdvisorInfo.name %></h1>
+        </div>
+        <div
+          class="dataOfResult mb-3 d-flex justify-content-center align-center flex-wrap"
+          style="gap: 10%"
+        >
+          <div class="gpa p-2" style="background-color: rgba(0, 0, 0, 0.2)">
+            <h2>gpas: <%= user.csisStudents[0].gpas %></h2>
+          </div>
+          <div
+            class="totalHours p-2"
+            style="background-color: rgba(0, 0, 0, 0.2)"
+          >
+            <h2>Total Hours: <%= user.csisStudents[0].TotalHours %></h2>
+          </div>
+          <div
+            class="department p-2"
+            style="background-color: rgba(0, 0, 0, 0.2)"
+          >
+            <h2>Departments: General</h2>
+          </div>
+          <div
+            class="total reminder p-2"
+            style="background-color: rgba(0, 0, 0, 0.2)"
+          >
+            <h2>Total Hours Reminder:</h2>
+          </div>
+        </div>
+      </div>
 
+      <!-- ///////////////////////// -->
+      <table
+        class="table align-middle border border-2"
+        style="font-weight: bold; font-size: large"
+      >
+        <thead style="font-weight: bold; font-size: large">
+          <tr>
+            <th>Course Name</th>
+            <th>Create At</th>
+            <th>Updated At</th>
+          </tr>
+        </thead>
+
+        <tbody style="font-weight: bold; font-size: medium">
+          <% checked.map(function (course,index) { %> <% if (course.courseName
+          !== null) { %>
+
+          <tr>
+            <td><%= course.courseName %></td>
+            <td><%= course.createdAt %></td>
+            <td><%= course.updatedAt %></td>
+          </tr>
+
+          <% } %> <% }) %>
+
+          <tr>
+            <td colspan="2">Number Of Courses :</td>
+            <td colspan="1">Total Hours : <%= TotalHoursRegistered %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% } %>
+    </div>
     <!-- new--------------------------------------------------------->
+    <!-- print -->
+    <script>
+      function printDivContent() {
+        var divElementContents =
+          document.getElementById("printContent").innerHTML;
+        var windows = window.open("", "", "height=4800, width=4800");
+        windows.document.write("<html>");
+        windows.document.write("<body >");
+        windows.document.write(divElementContents);
+        windows.document.write("</body></html>");
+        windows.document.close();
+        windows.print();
+      }
+    </script>
 
+    <button
+      class="btn btn-primary btn-lg align-center"
+      onclick="printDivContent()"
+    >
+      Print
+    </button>
     <!-- /#page-content-wrapper -->
   </div>
 </div>
