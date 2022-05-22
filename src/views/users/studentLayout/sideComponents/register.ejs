@@ -113,13 +113,13 @@
             class="department p-2"
             style="background-color: rgba(0, 0, 0, 0.2)"
           >
-            <h2>Departments: General</h2>
+            <h2>Departments: <%= getCurrentUserData.department %></h2>
           </div>
           <div
             class="total reminder p-2"
             style="background-color: rgba(0, 0, 0, 0.2)"
           >
-            <h2>Total Hours Reminder:</h2>
+            <h2>Total Hours Reminder: <%= calculatedTotalReminder %></h2>
           </div>
         </div>
       </div>

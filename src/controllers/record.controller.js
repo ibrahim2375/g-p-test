@@ -72,11 +72,22 @@ const methods = {
 
 
                 });
-                console.log(TotalHoursOfAllMaterials);
+                // console.log(TotalHoursOfAllMaterials);
+                // update to user profile
+                await db.csisStudent.update({ TotalHoursOfAllMaterial: TotalHoursOfAllMaterials }, {
+                    where: {
+                        userId: req.session.user.id
+                    }
+                }).then(function (result) {
+
+                    console.log(result, " Updated TotalHoursOfAllMaterials");
+
+                });
+                // TotalHoursOfAllMaterials = 0;
                 ///calculate total TotalHours Registered from first term
 
                 res.render("users/studentLayout/AcadmicRecords.ejs", {
-                    currentUser: req.session.user, studentResult, gpasAccurated
+                    currentUser: req.session.user, studentResult, gpasAccurated, TotalHoursOfAllMaterials
                 });
             } else {
                 res.redirect('/');

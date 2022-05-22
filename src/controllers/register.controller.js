@@ -204,6 +204,9 @@ const methods = {
                 //calculate total hours registered
                 //get data of materials
 
+                // get TotalHoursOfAllMaterials
+                var calculatedTotalReminder = 136 - getCurrentUserData.TotalHoursOfAllMaterial;
+                // console.log(calculatedTotalReminder);
 
 
                 // var materialsData = await db.materials.findAll({ where: { materialName: md.courseName } });
@@ -219,7 +222,7 @@ const methods = {
                 const getAcadmicAdvisorInfo = await db.acadmicInfo.findOne({ where: { level: user.csisStudents[0].level } });
                 res.render("users/studentLayout/RegisterationPage.ejs", {
                     currentUser: req.session.user, showMaterials: getMatrials, checkR: checkUserRegistration, checked: showCoursesRegistered
-                    , message, totalHours, TotalHoursRegistered, getAcadmicAdvisorInfo, user
+                    , message, totalHours, TotalHoursRegistered, getAcadmicAdvisorInfo, user, calculatedTotalReminder, getCurrentUserData
                 })
 
             } else {

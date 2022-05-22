@@ -14,10 +14,16 @@ module.exports = {
       nationality: {
         type: Sequelize.STRING
       },
+      department:{
+        type: Sequelize.STRING
+      },
       gpas: {
         type: Sequelize.FLOAT
       },
       TotalHours: {
+        type: Sequelize.INTEGER
+      },
+      TotalHoursOfAllMaterial: {
         type: Sequelize.INTEGER
       },
       createdAt: {
