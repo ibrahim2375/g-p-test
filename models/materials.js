@@ -16,12 +16,12 @@ module.exports = (sequelize, DataTypes) => {
   materials.init({
     materialName: DataTypes.STRING,
     level: DataTypes.INTEGER,
-    code: DataTypes.INTEGER,
+    code: DataTypes.STRING,
     college: DataTypes.STRING,
     hours: DataTypes.FLOAT,
     semester: DataTypes.STRING,
     total: DataTypes.INTEGER,
-    prerequisites: DataTypes.INTEGER
+    prerequisites: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'materials',

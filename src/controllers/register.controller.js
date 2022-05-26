@@ -28,13 +28,15 @@ const methods = {
                 if (showAllResult.length === 0) {
                     getMatrials = await db.materials.findAll({
                         where: {
-                            prerequisites: 0
+                            prerequisites: "0",
+                            semester: "first"
                         }, order: [['code']],
                     });
                     //total hours
                     totalHours = await db.materials.sum('hours', {
                         where: {
-                            prerequisites: 0
+                            prerequisites: "0",
+                            semester: "first"
                         }, order: [['code']],
                     }); //total hours
                     // console.log(totalHours);
@@ -53,7 +55,7 @@ const methods = {
                                             [Op.or]: [
 
                                                 {
-                                                    prerequisites: all.code
+                                                    prerequisites: all.code,
                                                 }
                                                 ,
                                                 {
@@ -62,7 +64,9 @@ const methods = {
                                                     ]
 
                                                 }
-                                            ]
+                                            ],
+
+                                            semester: "first"
                                         }, order: [['code']],
                                     });
 
@@ -81,7 +85,8 @@ const methods = {
                                                     ]
 
                                                 }
-                                            ]
+                                            ],
+                                            semester: "first"
                                         }, order: [['code']],
                                     });
                                 });
@@ -100,7 +105,8 @@ const methods = {
                                                     prerequisites: all.code
                                                 },
 
-                                            ]
+                                            ],
+                                            semester: "first"
                                         }, order: [['code']],
 
                                     });
@@ -114,7 +120,8 @@ const methods = {
                                                     prerequisites: all.code
                                                 },
 
-                                            ]
+                                            ],
+                                            semester: "first"
                                         }, order: [['code']],
                                     });
                                 });
@@ -135,6 +142,7 @@ const methods = {
                                                     { materialName: result1.courseName }
                                                 ]
                                             },
+                                            { semester: "first" }
 
                                         ]
 
@@ -155,6 +163,7 @@ const methods = {
                                                     { materialName: result1.courseName }
                                                 ]
                                             },
+                                            { semester: "first" }
 
                                         ]
 

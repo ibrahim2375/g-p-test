@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       code: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       college: {
         type: Sequelize.STRING
@@ -29,9 +29,9 @@ module.exports = {
       total: {
         type: Sequelize.INTEGER
       },
-      
+
       prerequisites: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
