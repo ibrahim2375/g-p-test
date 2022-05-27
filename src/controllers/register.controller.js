@@ -11,6 +11,9 @@ const methods = {
 
             // prerequisites: 0, materialName: getResults[0].courseName 
             if (req.session.user && req.cookies.user_sid) {
+                //get current semester 
+                var term = await db.semester.findOne({ where: { id: 1 } });
+                // console.log();
                 var getCurrentUserData = await db.csisStudent.findOne({ where: { userId: req.session.user.id }, include: [db.users] });
                 // var getMatrials = await db.materials.findAll({ where: { level: getCurrentUserData.level, semester: 'second' } });
                 const showAllResult = await db.csisResult.findAll({ where: { userId: req.session.user.id } });
@@ -29,14 +32,14 @@ const methods = {
                     getMatrials = await db.materials.findAll({
                         where: {
                             prerequisites: "0",
-                            semester: "first"
+                            semester: term.current
                         }, order: [['code']],
                     });
                     //total hours
                     totalHours = await db.materials.sum('hours', {
                         where: {
                             prerequisites: "0",
-                            semester: "first"
+                            semester: term.current
                         }, order: [['code']],
                     }); //total hours
                     // console.log(totalHours);
@@ -66,7 +69,7 @@ const methods = {
                                                 }
                                             ],
 
-                                            semester: "first"
+                                            semester: term.current
                                         }, order: [['code']],
                                     });
 
@@ -86,7 +89,7 @@ const methods = {
 
                                                 }
                                             ],
-                                            semester: "first"
+                                            semester: term.current
                                         }, order: [['code']],
                                     });
                                 });
@@ -106,7 +109,7 @@ const methods = {
                                                 },
 
                                             ],
-                                            semester: "first"
+                                            semester: term.current
                                         }, order: [['code']],
 
                                     });
@@ -121,7 +124,7 @@ const methods = {
                                                 },
 
                                             ],
-                                            semester: "first"
+                                            semester: term.current
                                         }, order: [['code']],
                                     });
                                 });
@@ -142,7 +145,7 @@ const methods = {
                                                     { materialName: result1.courseName }
                                                 ]
                                             },
-                                            { semester: "first" }
+                                            { semester: term.current }
 
                                         ]
 
@@ -163,7 +166,7 @@ const methods = {
                                                     { materialName: result1.courseName }
                                                 ]
                                             },
-                                            { semester: "first" }
+                                            { semester: term.current }
 
                                         ]
 
