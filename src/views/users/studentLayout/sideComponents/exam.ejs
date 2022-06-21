@@ -12,12 +12,12 @@
       "
     >
       <% examsTablesOfYears.forEach(function (exam) { %>
-      <a href="<%= exam.url%>" style="width: 40%; height: 300px">
-        <div class="card text-white bg-dark mb-0 p-3" style="max-width: 30rem">
-          <div class="card-header"><%= exam.semester%></div>
+      <a href="<%= exam.url%>" style="width: 50rem;" target="_blank">
+        <div class="card text-white bg-dark mb-0 p-2 mt-5" style="max-width: 50rem">
+          <div class="card-header"></div>
           <div class="card-body">
-            <h5 class="card-title">Level <%= exam.level%></h5>
-            <p class="card-text"><%= exam.desc%></p>
+            <h1 class="card-title">Semester : <%= exam.semester%></h1>
+            <p class="card-text"></p>
           </div>
         </div>
       </a>

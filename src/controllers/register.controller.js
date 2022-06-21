@@ -12,7 +12,7 @@ const methods = {
             // prerequisites: 0, materialName: getResults[0].courseName 
             if (req.session.user && req.cookies.user_sid) {
                 //get current semester 
-                var term = await db.semester.findOne({ where: { id: 1 } });
+                var term = await db.semester.findOne();
                 // console.log();
                 var getCurrentUserData = await db.csisStudent.findOne({ where: { userId: req.session.user.id }, include: [db.users] });
                 // var getMatrials = await db.materials.findAll({ where: { level: getCurrentUserData.level, semester: 'second' } });
@@ -131,7 +131,7 @@ const methods = {
                             });
                         }
                         else {
-
+                            // console.log("hello");
                             getResults1.map(async function (result1) {
 
                                 getMatrials = await db.materials.findAll({
