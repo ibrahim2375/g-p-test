@@ -14,7 +14,8 @@ router.post('/', async (req, res) => {
         where: {
             courseName: dataOfInstructor.instructors[0].courseName, userId: {
                 [Op.like]: `%${search}%`
-            }
+            },
+            pass: null
         }
     });
     if (studentRegisteredCourse) {

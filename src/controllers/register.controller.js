@@ -253,12 +253,12 @@ const methods = {
                     res.redirect('/registeration');
                 } else {
                     //register_controller
-                    const { m0, m1, m2, m3, m4, m5 } = req.body;
+                    const { m0, m1, m2, m3, m4, m5, m6, m7, m8 } = req.body;
 
                     var allm = [];
-                    if (m0 || m1 || m2 || m3 || m4 || m5) {
+                    if (m0 || m1 || m2 || m3 || m4 || m5 || m6 || m7 || m8) {
 
-                        allm.push(m0, m1, m2, m3, m4, m5);
+                        allm.push(m0, m1, m2, m3, m4, m5, m6, m7, m8);
                         allm.map(async function (find) {
                             if (find !== undefined) {
                                 //add in registration datbase
