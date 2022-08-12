@@ -1,14 +1,14 @@
 <div id="page-content-wrapper">
   <div class="container-fluid">
-    <h1 class="display-3">Pre Registeration</h1>
+    <h1 class="display-5">Pre Registeration</h1>
     <% if(!checkR) { %>
     <form action="/registeration" method="post">
       <!-- loop for matrials -->
       <table
         class="table align-middle border border-2"
-        style="font-weight: bold; font-size: larger"
+        style="font-size: large"
       >
-        <thead style="font-weight: bold; font-size: larger">
+        <thead style="font-size: large">
           <tr>
             <th scope="col"><h4>Course Name</h4></th>
             <th scope="col"><h4>Code</h4></th>
@@ -17,7 +17,7 @@
           </tr>
         </thead>
 
-        <tbody style="font-weight: bold; font-size: large">
+        <tbody style=" font-size: large">
           <% showMaterials.forEach(function (m,index) { %>
           <tr>
             <td><% const mnames = [m.materialName] %> <%= m.materialName %></td>

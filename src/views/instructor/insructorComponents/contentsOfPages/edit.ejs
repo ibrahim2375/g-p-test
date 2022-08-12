@@ -13,10 +13,10 @@
   </div>
 </form>
   
-  <h2 class="display-2"><%= dataOfInstructor.instructors[0].courseName %></h2>
+  <h2 class="display-5"><%= dataOfInstructor.instructors[0].courseName %></h2>
   <!-- search -->
-  <table class="table align-middle border border-2"  style="font-size: larger; font-weight: bold">
-    <thead  style="font-size: larger; font-weight: bold">
+  <table class="table align-middle border border-2"  style="font-size: large">
+    <thead  style="font-size: large">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Id</th>
@@ -31,7 +31,7 @@
         <th scope="col">Action</th>
       </tr>
     </thead>
-    <tbody  style="font-size: large; font-weight: bold">
+    <tbody  style="font-size: large">
         <% studentRegisteredCourse.forEach(function(student, index) { %>
         
          
@@ -53,7 +53,7 @@
         </td>
     </tr>
 
-<% }) %>
+     <% }) %>
       
       </tr>
     </tbody>

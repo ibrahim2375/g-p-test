@@ -14,38 +14,7 @@
   </head>
   <body>
     <header><%- include('../../layout/navbar.ejs') %></header>
-    <div id="wrapper" class="toggled">
-      <div class="iconToggle" id="iconToggle">
-        <i class="fa-solid fa-arrow-right-arrow-left"></i>
-      </div>
-      <!-- Sidebar -->
-      <div id="sidebar-wrapper">
-        <ul class="sidebar-nav" style="font-size: larger; font-weight: bold">
-          <li class="sidebar-brand mt-4">
-            <a href="#"> Dashboard </a>
-          </li>
-          <li>
-            <a href="/user">Profile</a>
-          </li>
-          <li>
-            <a href="/registeration">Pre Pregistration</a>
-          </li>
-          <li>
-            <a href="/tables">Tables</a>
-          </li>
-          <li>
-            <a href="/acadmic-records">Acadmic Records</a>
-          </li>
-          <li>
-            <a href="/exams">Scheduling</a>
-          </li>
-           <li>
-            <a href="/archive">Archive</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /#sidebar-wrapper -->
-
+       <%- include('../../layout/sidebar.ejs') %>
       <!-- Page Content -->
       <%- include('./sideComponents/records.ejs') %>
       <!-- /#wrapper -->
